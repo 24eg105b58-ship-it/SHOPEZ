@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg-dark: #090d16;
+  --bg-panel: rgba(17, 24, 39, 0.75);
+  --bg-card: rgba(22, 28, 45, 0.65);
+  --primary-glow: #6366f1;
+  --primary-glow-hover: #4f46e5;
+  --secondary-glow: #d946ef;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --success-color: #10b981;
+  --danger-color: #ef4444;
+  --warning-color: #f59e0b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+    radial-gradient(at 90% 80%, rgba(217, 70, 239, 0.1) 0px, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+}
+
+/* Typography Extensions */
+.gradient-text {
+  background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/* Glassmorphism Classes */
+.glass-navbar {
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1050;
+}
+
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.glass-panel {
+  background: var(--bg-panel);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+}
+
+/* Interactive Components */
+.btn-glow {
+  background: linear-gradient(135deg, var(--primary-glow) 0%, #4f46e5 100%);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 24px;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+  color: #ffffff;
+  background: linear-gradient(135deg, #818cf8 0%, var(--primary-glow) 100%);
+}
+
+.btn-glow:active {
+  transform: translateY(0);
+}
+
+.btn-outline-glow {
+  background: transparent;
+  color: var(--text-main);
+  border: 1.5px solid var(--primary-glow);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 9px 23px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-glow:hover {
+  background: rgba(99, 102, 241, 0.1);
+  color: #ffffff;
+  border-color: #818cf8;
+}
+
+.btn-secondary-glow {
+  background: linear-gradient(135deg, var(--secondary-glow) 0%, #c084fc 100%);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 24px;
+  box-shadow: 0 4px 15px rgba(217, 70, 239, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 70, 239, 0.5);
+  color: #ffffff;
+  background: linear-gradient(135deg, #f472b6 0%, var(--secondary-glow) 100%);
+}
+
+/* Form inputs styling */
+.form-glass {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main) !important;
+  border-radius: 8px;
+  padding: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-glass::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.form-glass:focus {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.25);
+  outline: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Admin Dashboard CSS Components */
+.stat-card {
+  background: linear-gradient(135deg, rgba(22, 28, 45, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+/* Custom list group items */
+.list-group-item-glass {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: var(--glass-border) !important;
+  color: var(--text-main) !important;
+  transition: background-color 0.2s ease;
+}
+
+.list-group-item-glass:hover {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Table customizing */
+.table-glass {
+  background: transparent !important;
+  color: var(--text-main) !important;
+}
+
+.table-glass th {
+  background: rgba(255, 255, 255, 0.04) !important;
+  color: var(--text-main) !important;
+  border-bottom: 1.5px solid var(--border-color) !important;
+  padding: 16px 12px !important;
+}
+
+.table-glass td {
+  background: transparent !important;
+  color: var(--text-main) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  padding: 16px 12px !important;
+  vertical-align: middle !important;
+}
+
+.badge-glow-success {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-glow-primary {
+  background-color: rgba(99, 102, 241, 0.15) !important;
+  color: #a5b4fc !important;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.badge-glow-danger {
+  background-color: rgba(239, 68, 68, 0.15) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-glow-warning {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-glow-info {
+  background-color: rgba(6, 182, 212, 0.15) !important;
+  color: #67e8f9 !important;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* Wishlist glowing icon */
+.wishlist-heart {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: var(--text-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.wishlist-heart:hover {
+  transform: scale(1.15);
+  color: #ef4444;
+}
+
+.wishlist-heart.active {
+  color: #ef4444;
+}
